@@ -1,10 +1,12 @@
 from flask import Flask, Response
+from flask_cors import CORS
 from pocketcasts import Pocketcasts
 import os
 import random
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def get_podcast_files():
