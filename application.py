@@ -8,12 +8,14 @@ import random
 app = Flask(__name__)
 CORS(app)
 
+N_PODCASTS = 20
+
 @app.route('/')
 def get_podcast_files():
     token = get_token(os.environ["POCKETCASTS_USERNAME"], os.environ["POCKETCASTS_PASSWORD"])
     podcasts = get_podcasts(token)
     random.shuffle(podcasts)
-    urls = [get_unlistened_podcast_episode_url(token, p["uuid"]) for p in podcasts[0:100]]
+    urls = [get_unlistened_podcast_episode_url(token, p["uuid"]) for p in podcasts[0:N_PODCASTS]]
     return Response(("\n").join(urls), mimetype="audio/x-mpegurl")
 
 
