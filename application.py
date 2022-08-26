@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from flask import Flask, Response
 from flask_cors import CORS
 import requests
