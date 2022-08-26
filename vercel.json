@@ -4,8 +4,8 @@
         "src": "./application.py",
         "use": "@vercel/python"
     }],
-    "routes": [{
-        "src": "/(.*)",
-        "dest": "/"
-    }]
+
+    "rewrites": [
+        { "source": "/(.*)", "destination": "/api/index" }
+    ]
 }
